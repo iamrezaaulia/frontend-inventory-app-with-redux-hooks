@@ -17,15 +17,14 @@ class NavigationBar extends Component {
                 <Container>
                     <Navbar.Brand><Link to='/'><Image src={logo}/></Link></Navbar.Brand>
                     <Nav className='mr-auto'>
-                        <Nav.Link><Link to='/products'><Button size='sm' variant='warning'>Products</Button></Link></Nav.Link>
+                        <Nav.Link><Link to='/products'>PRODUCTS</Link></Nav.Link>
                     </Nav>
                     <Nav className='justify-content-end'>  
-                        {
-                            localStorage.getItem('auth') ? (
-                            <Nav.Link><Button variant='danger'size='sm' onClick={this.logout}>Logout</Button></Nav.Link>
-                            ) : 
-                            (<Nav.Link><Link to='/login'><Button size='sm' variant='primary'>Login</Button></Link></Nav.Link>
-                            )}                  
+                        {localStorage.getItem('auth') ? (
+                        <Nav.Link onClick={this.logout}><Button size='sm' variant='danger'>Logout</Button></Nav.Link>
+                        ) : (
+                        <Nav.Link><Link to='/login'><Button size='sm' variant='danger'>Login</Button></Link></Nav.Link>
+                        )}                  
                     </Nav>
                 </Container>
             </Navbar>

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Button, Row, Col, Container, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
+import { connect } from 'react-redux';
+import { register } from '../redux/actions/UsersAction'
 
 
 class Register extends Component {
@@ -16,22 +18,23 @@ class Register extends Component {
 			[e.target.name] : e.target.value
 		});
     }
-    
-    handlerSubmit = async () => {
-        window.event.preventDefault()
-        await axios.post('/user/register', this.state)
-        console.log(this.state)
-        this.props.history.push('/login')
+
+    handlerSubmit = e => {
+        e.preventDefault()
+        const data = this.state
+        this.props.register(data)
+        .then(res => {
+            this.props.history.push('/login')
+        })
     }
 
-	    
     render() {
         return (
             <Container>
-                <Row className="justify-content-md-center mt-5" >
+                <Row className="justify-content-md-center mt-5">
                     <Col md={4}>
                         <h4 className='text-center mb-4'>Form Register</h4>
-                        <Form onSubmit={this.handlerSubmit}>
+                        <Form>
                             <Form.Group className='username'>
                                 <Form.Control 
                                             type='text' 
@@ -59,7 +62,7 @@ class Register extends Component {
                                 />
                             </Form.Group>
                         
-                            <Button variant='primary' type='submit'>Register</Button>
+                            <Button variant='primary' type='submit'onClick={this.handlerSubmit}>Register</Button>
                             <hr/>
                         </Form>
                         <Link to='/login'>
@@ -72,4 +75,14 @@ class Register extends Component {
     }
 }
 
-export default Register;
+const mapStateToProps = state => {
+    return {
+        user: state.users
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    register: (data) => dispatch(register(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

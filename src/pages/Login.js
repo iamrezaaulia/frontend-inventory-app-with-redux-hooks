@@ -1,32 +1,45 @@
 import React, { Component } from 'react';
 import { Form, Button, Row, Col, Container, Badge } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux'
+
+import { login } from '../redux/actions/UsersAction';
+// import axios from 'axios';
  
 class Login extends Component {
     state = {
         username: '',
-        email: '',
-        token: ''
-	};
-
-	handlerChange = e => {
+        email: ''
+    };
+    
+    handlerChange = e => {
 		this.setState({
 			[e.target.name] : e.target.value
 		});
     }
-    
-    handlerSubmit = async () => {
-        window.event.preventDefault()
-        await axios.post('/user/login', this.state)
-        .then(res => this.setState({
-            token: res.data.token
-        }))
-        console.log(this.state)
 
-        localStorage.setItem('auth', this.state.token)
-        window.location.replace('/products')
-    }
+    handlerSubmit = e => {
+		e.preventDefault();
+		const data = this.state
+        this.props.login(data)
+        .then(res => {
+            localStorage.setItem('auth', res.action.payload.data.token)
+            window.location.replace('/products')
+        })
+	}
+    
+    // handlerSubmit = e => {
+    //     e.preventDefault()
+    //     const user = this.state
+    //     this.props.login(user)
+        // await axios.post('/user/login', this.state)
+        // .then(res => this.setState({
+        //     token: res.data.token
+        // }))
+
+    //     localStorage.setItem('auth', this.state.token)
+    //     window.location.replace('/products')
+    // }
 
     render() {
         return (
@@ -34,7 +47,7 @@ class Login extends Component {
                 <Row className='justify-content-md-center mt-5' >
                     <Col md={4}>
                         <h4 className='text-center mb-4'>Form Login</h4>
-                        <Form onSubmit={this.handlerSubmit}>
+                        <Form>
                             <Form.Group className='email'>
                                 <Form.Control 
                                             type='text'
@@ -53,7 +66,7 @@ class Login extends Component {
                                 />
                             </Form.Group>
                         
-                            <Button variant='primary' type='submit'>Login</Button>
+                            <Button variant='primary' type='submit' onClick={this.handlerSubmit}>Login</Button>
                             <hr/>
                         </Form>
                         <Link to='/register'>
@@ -66,4 +79,14 @@ class Login extends Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => {
+    return {
+        user: state.users
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    login: (data) => dispatch(login(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

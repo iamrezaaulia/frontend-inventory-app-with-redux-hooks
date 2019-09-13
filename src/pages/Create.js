@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { Form, Button, Row, Col, Container } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
+
+import { connect } from 'react-redux';
+import { createProduct } from '../redux/actions/ProductsAction'
 
 
-class AddProduct extends Component {
+class Create extends Component {
     state = {
         name: '',
         description: '',
@@ -17,18 +20,27 @@ class AddProduct extends Component {
 			[e.target.name] : e.target.value
 		});
     }
-    
-    handlerSubmit = async () => {
-        var token_1 = localStorage.getItem('auth')
-        window.event.preventDefault()
-        await axios.post('/products', this.state, {
-            headers: {
-                token: 'bearer ' + token_1
-              }
+
+    handlerSubmit = e => {
+        e.preventDefault()
+        const data = this.state
+        this.props.createProduct(data)
+        .then(res => {
+            this.props.history.push('/products')
         })
-        console.log(this.state)
-        this.props.history.push('/products')
     }
+    
+    // handlerSubmit = async () => {
+    //     var token_1 = localStorage.getItem('auth')
+    //     window.event.preventDefault()
+    //     await axios.post('/products', this.state, {
+    //         headers: {
+    //             token: 'bearer ' + token_1
+    //           }
+    //     })
+    //     console.log(this.state)
+    //     this.props.history.push('/products')
+    // }
 
     render() {
         return (
@@ -36,7 +48,7 @@ class AddProduct extends Component {
                 <Row className="justify-content-md-center mt-5">
                     <Col md={4}>
                         <h4 className='text-center mb-4'>Form Create New Inventory</h4>
-                        <Form onSubmit={this.handlerSubmit}>
+                        <Form>
                             <Form.Group className='name'>
                                 <Form.Control 
                                             type='text' 
@@ -66,12 +78,17 @@ class AddProduct extends Component {
                             </Form.Group>
 
                             <Form.Group className='categories_id'>
-                                <Form.Control
+                                <Form.Control as="select"
                                             type='text'
-                                            name='categories_id' 
+                                            name='categories_id'
                                             onChange={this.handlerChange}
-                                            placeholder='Categories'
-                                />
+                                >
+                                    <option value='1'>Komputer</option>
+                                    <option value='2'>Handphone</option>
+                                    <option value='3'>Pelengkapan Rumah</option>
+                                    <option value='4'>Makanan dan Minuman</option>
+                                    <option value='5'>Fashion</option>
+                                </Form.Control>
                             </Form.Group>
 
                             <Form.Group className='quantity'>
@@ -83,7 +100,7 @@ class AddProduct extends Component {
                                 />
                             </Form.Group>
 
-                            <Button variant='primary' type='submit'>Save</Button>
+                            <Button variant='primary' type='submit'onClick={this.handlerSubmit}>Save</Button>
                         </Form>
                     </Col>
                 </Row>
@@ -92,4 +109,14 @@ class AddProduct extends Component {
     }
 }
 
-export default AddProduct;
+const mapStateToProps = state => {
+    return {
+       products : state.products
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    createProduct: (data) => dispatch(createProduct(data))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Create);

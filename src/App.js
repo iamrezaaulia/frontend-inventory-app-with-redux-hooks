@@ -18,7 +18,6 @@ class App extends Component {
       localStorage.getItem('auth')
   }
   render() {
-    // const token = this.auth();
     axios.defaults.baseURL = 'http://localhost:8000/api'
     return (
       <Router>
