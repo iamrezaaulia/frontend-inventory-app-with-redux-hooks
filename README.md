@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1>Front End Inventory App with React JS, Redux and Hooks</h1>
 
-## Available Scripts
+<p align='center'>
+  <img width="600" src="https://miro.medium.com/max/1000/1*wnP4g1GY1MgXU150sw3QXw.png" />
+</p>
 
-In the project directory, you can run:
 
-### `npm start`
+## Introduction
+[![React JS](https://img.shields.io/badge/react--js-16.9.0-blue)](https://reactjs.org/)
+[![Redux](https://img.shields.io/badge/redux-4.0.4-orange)](https://redux.js.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v.10.16-green.svg?style=rounded-square)](https://nodejs.org/)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here is my new repository which builded with React JS, Redux and React Hooks for making the User Interface in JavaScript syntax, see my previous repository about <a href="https://github.com/iamrezaaulia/RESTful-API-Inventory-App">Inventory-App-Express-Js-BackEnd</a> for the backend side and making API.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Feature Project
+1. Login and Register (JWT) with Redux
+2. CRUD Poducts with Redux
+3. CRUD Category with React Hooks
+3. Query search, page, limit, sort and sortBy
 
-### `npm test`
+## Related Project
+<a href="https://github.com/iamrezaaulia/RESTful-API-Inventory-App">ExpressJS - Simple Inventory App RESTfull API</a>
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Requirements
+1. Clone related project 
+2. Install <a href="https://nodejs.org/en/download/">Node Js</a>
+3. Install Node_modules - type `yarn` in terminal
 
-### `npm run build`
+## How to Run The App 
+1. Open app's directory in CMD or Terminal, type `yarn start`
+2. Before `yarn start` prepare the API first
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Screenshot App
+1. Register
+   <image src="https://user-images.githubusercontent.com/53343532/64962242-433efd00-d8c1-11e9-908f-a62c7918dbaf.png" />
+2. Login
+   <image src="https://user-images.githubusercontent.com/53343532/64962248-44702a00-d8c1-11e9-8511-3d05020001fc.png" />
+3. Home
+   <image src="https://user-images.githubusercontent.com/53343532/64962247-44702a00-d8c1-11e9-803f-0be2a722006a.png" />
+4. Products
+   <image src="https://user-images.githubusercontent.com/53343532/64962252-4508c080-d8c1-11e9-836c-b0755c881975.png" />
+5. Add
+   <image src="https://user-images.githubusercontent.com/53343532/64962244-43d79380-d8c1-11e9-90c2-2b273e1401b9.png" />
+6. Detail
+   <image src="https://user-images.githubusercontent.com/53343532/64962246-43d79380-d8c1-11e9-9eeb-cf55840fd766.png" />
+7. Search
+   <image src="https://user-images.githubusercontent.com/53343532/64962243-433efd00-d8c1-11e9-91e6-ff0e2cac08c5.png" />
