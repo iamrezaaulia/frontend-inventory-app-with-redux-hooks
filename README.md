@@ -1,4 +1,4 @@
-<h1>Front End Inventory App with React JS, Redux and React Hooks</h1>
+<h2>Front End Inventory App with React JS, Redux and React Hooks</h2>
 
 <p align='center'>
   <img src="https://miro.medium.com/max/1000/1*wnP4g1GY1MgXU150sw3QXw.png" />
@@ -10,7 +10,7 @@
 [![Redux](https://img.shields.io/badge/redux-4.0.4-orange)](https://redux.js.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-v.10.16-green.svg?style=rounded-square)](https://nodejs.org/)
 
-Here is my new repository which builded with React JS, Redux and React Hooks for making the User Interface in JavaScript syntax, see my previous repository about <a href="https://github.com/iamrezaaulia/RESTful-API-Inventory-App">Inventory-App-Express-Js-BackEnd</a> for the backend side and making API.
+Here is my new repository which builded with React JS, Redux and React Hooks with library redux promise middleware, redux logger, react router dom, react bootstrap and more for making the User Interface in JavaScript syntax, see my previous repository about <a href="https://github.com/iamrezaaulia/RESTful-API-Inventory-App">Inventory-App-Express-Js-BackEnd</a> for backend side and making API.
 
 ## Feature Project
 1. Login and Register (JWT) with Redux
