@@ -1,7 +1,7 @@
-<h1>Front End Inventory App with React JS, Redux and Hooks</h1>
+<h1>Front End Inventory App with React JS, Redux and React Hooks</h1>
 
 <p align='center'>
-  <img width="600" src="https://miro.medium.com/max/1000/1*wnP4g1GY1MgXU150sw3QXw.png" />
+  <img src="https://miro.medium.com/max/1000/1*wnP4g1GY1MgXU150sw3QXw.png" />
 </p>
 
 
